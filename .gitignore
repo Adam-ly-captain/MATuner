@@ -1,0 +1,9 @@
+*.png
+*.ai
+*.svg
+*.pdf
+*.jpg
+*.emf
+*.eps
+
+__pycache__/
