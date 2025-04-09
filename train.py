@@ -150,9 +150,9 @@ if __name__ == "__main__":
 
     manager, connections, s = init_env()
     mysqld_knobs, continuous_knobs_num, discrete_knobs_num = get_knobs()
-    episode_data = pd.read_excel("./model/maddpg/res/res.xlsx")
+    episode_data = pd.read_excel("./model/maddpg/res/res_tps0.25_lat0.5.xlsx")
 
-    episode = 10
+    episode = 5
     max_episode_length = 50  # 因为我的perf_start的计算是从一个episode的开始才定义，所以尽量把max_episode_length设置大一点
     actor_lr = 0.01
     critic_lr = 0.01
@@ -288,7 +288,7 @@ if __name__ == "__main__":
         # 一个episode保存一次
         maddpg.save_model()
 
-        episode_data.to_excel("./model/maddpg/res/res.xlsx", index=False)
+        episode_data.to_excel("./model/maddpg/res/res_tps0.25_lat0.5.xlsx", index=False)
 
     close_env()
 
