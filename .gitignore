@@ -5,5 +5,18 @@
 *.jpg
 *.emf
 *.eps
+*.th
+*.tif
+*.tiff
+*.jpeg
+*.gif
+*.xlsx
+*.xls
+*.docx
+*.doc
+*.pptx
+*.ppt
+*.pptm
+*.csv
 
 __pycache__/

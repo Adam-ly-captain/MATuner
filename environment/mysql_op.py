@@ -77,6 +77,9 @@ def clear_binlog(host):
     cursor = conn.cursor()
 
     cursor.execute(f"PURGE BINARY LOGS BEFORE '{formatted_datetime}'")
+    
+    cursor.close()
+    conn.close()   
 
     Log().Debug(f"purge binary logs from {host} successfully")
 

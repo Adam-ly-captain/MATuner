@@ -13,6 +13,8 @@ ndbcluster
 ndb-connectstring=192.168.182.102
 port=3306
 
+innodb_max_undo_log_size=10485760
+innodb_purge_rseg_truncate_frequency=16
 """
 
     other_template = """
@@ -58,10 +60,10 @@ def init_knobs():
     mysqld_knobs = {
         knob_value_type[0]: {  # [min, max]
             "innodb_buffer_pool_size": [
-                1048576,
+                1073741824,
                 3221225472,
             ],  # 1MB(测试时是1GB)-3G 物理内存的70%左右 影响性能最大的参数, 缓存池
-            "max_connections": [129, 500],  # 最大连接数, defalt: 151  128+1, 不能低于128, 否则压测的时候因为负载均衡就会超出连接池大小无法连接
+            "max_connections": [150, 500],  # 最大连接数, defalt: 151  128+1, 不能低于128, 否则压测的时候因为负载均衡就会超出连接池大小无法连接
             "back_log": [100, 300],  # 连接请求队列的最大长度
             "long_query_time": [1, 20],  # 查询超过多少秒记录到慢查询日志
             "ndb_batch_size": [16384, 65536],  # ndb的批处理大小

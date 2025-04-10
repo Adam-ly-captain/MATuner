@@ -76,7 +76,7 @@ class Sysbench(Connnection):
         """
         计算性能的expectation
         """
-        return result["tps"] * 0.25 + result["qps"] * 0.25 + result["lat"] * 0.5
+        return result["tps"] * 0.25 + result["qps"] * 0.25 - result["lat"] * 0.5
 
     def calculate_state(self, state1_before, state1_after, state2_before, state2_after):
         """
